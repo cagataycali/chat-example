@@ -1,0 +1,20 @@
+const cote = require('cote');
+const app = require('http').createServer(handler);
+const io = require('socket.io').listen(app);
+const fs = require('fs');
+
+app.listen(process.argv[2] || 5555);
+
+function handler(req, res) {
+    fs.readFile(__dirname + '/index.html', function(err, data) {
+        if (err) {
+            res.writeHead(500);
+            return res.end('Error loading index.html');
+        }
+
+        res.writeHead(200);
+        res.end(data);
+    });
+};
+
+var sockend = new cote.Sockend(io, { name: 'sockend' });

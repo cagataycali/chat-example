@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Cote - Socket.IO chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -25,12 +25,14 @@
       $(function () {
         var socket = io();
         $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
+          socket.emit('chatMessage', {val: $('#m').val()}, function(status) {
+            console.log('OK!');
+          });
           $('#m').val('');
           return false;
         });
-        socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
+        socket.on('chatMessage', function(msg){
+          $('#messages').append($('<li>').text(msg.val));
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
