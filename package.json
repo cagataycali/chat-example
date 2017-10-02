@@ -4,9 +4,13 @@
   "description": "my first cote socket.io app",
   "dependencies": {
     "cote": "^0.15.1",
-    "socket.io": "^1.7.3"
+    "socket.io": "^2.0.2",
+    "snyk": "^1.41.1"
   },
   "scripts": {
-    "start": "node index.js"
-  }
+    "start": "node index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
