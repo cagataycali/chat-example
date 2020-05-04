@@ -5,12 +5,12 @@
   "dependencies": {
     "cote": "^0.15.1",
     "socket.io": "^2.0.2",
-    "snyk": "^1.41.1"
+    "snyk": "^1.317.0"
   },
   "scripts": {
     "start": "node index.js",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "yarn run snyk-protect"
   },
   "snyk": true
 }
