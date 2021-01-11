@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "my first cote socket.io app",
   "dependencies": {
-    "cote": "^0.15.1",
+    "cote": "^1.0.0",
     "socket.io": "^2.0.2",
     "snyk": "^1.41.1"
   },
